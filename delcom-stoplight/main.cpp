@@ -46,11 +46,11 @@
  */
 
 static unsigned char green[16] = {101,12,1,0};
-static unsigned char yellow[16] = {101,12,2,0};
-static unsigned char red[16] = {101,12,4,0};
+static unsigned char red[16] = {101,12,2,0};
+static unsigned char blue[16] = {101,12,4,0};
 static unsigned char green_off[16] = {101,12,0,1};
-static unsigned char yellow_off[16] = {101,12,0,2};
-static unsigned char red_off[16] = {101,12,0,4};
+static unsigned char red_off[16] = {101,12,0,2};
+static unsigned char blue_off[16] = {101,12,0,4};
 
 
 int main(int argc, const char * argv[])
@@ -113,23 +113,23 @@ int main(int argc, const char * argv[])
         if (strcmp(argv[1],"green") == 0) {
             // turn others off 
             res = hid_write(handle, red_off, 16);
-            res = hid_write(handle, yellow_off, 16);
+            res = hid_write(handle, blue_off, 16);
             //set green
             res = hid_write(handle, green, 16);
             printf("setting Green LED...\n");
         }
-        if (strcmp(argv[1],"yellow") == 0) {
+        if (strcmp(argv[1],"blue") == 0) {
             // turn others off 
             res = hid_write(handle, green_off, 16);
             res = hid_write(handle, red_off, 16);
             //set yellow
-            res = hid_write(handle, yellow, 16);
+            res = hid_write(handle, blue, 16);
             printf("setting Yellow LED...\n");
         }
         if (strcmp(argv[1],"red") == 0) {    
             // turn others off 
             res = hid_write(handle, green_off, 16);
-            res = hid_write(handle, yellow_off, 16);
+            res = hid_write(handle, blue_off, 16);
             //set red
             res = hid_write(handle, red, 16);
             printf("setting Red LED...\n");
@@ -137,7 +137,7 @@ int main(int argc, const char * argv[])
         if (strcmp(argv[1],"off") == 0) {    
             // all off
             res = hid_write(handle, green_off, 16);
-            res = hid_write(handle, yellow_off, 16);
+            res = hid_write(handle, blue_off, 16);
             res = hid_write(handle, red_off, 16);
             printf("setting all LED off...\n");
         }    
